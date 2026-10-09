@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
+import Talents from './pages/Talents';
 import About from './pages/About';
 import Events from './pages/Events';
 import EventDetail from './pages/EventDetail';
@@ -29,6 +30,7 @@ export default function App() {
             <Route path="/about" element={<About />} />
             <Route path="/events" element={<Events />} />
             <Route path="/events/:id" element={<EventDetail />} />
+            <Route path="/talents" element={<Talents />} />
             <Route path="/contact" element={<Contact />} />
             {/* Catch-all */}
             <Route path="*" element={<Home />} />

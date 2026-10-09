@@ -174,7 +174,7 @@ export default function Events() {
               <div className="lg:col-span-7">
                 <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#CFB53B]/20 text-[#CFB53B] border border-[#CFB53B]/30 text-[9px] uppercase font-bold tracking-widest mb-6">
                   <Award size={12} />
-                  <span>Événement Autonome · Basket Na Bisso</span>
+                  <span>African Streetball Championship · Basket Na Bisso</span>
                 </div>
 
                 <h2 className="text-4xl md:text-7xl font-serif tracking-tighter mb-6 leading-tight">
@@ -220,9 +220,9 @@ export default function Events() {
               <div className="lg:col-span-5">
                 <div className="relative aspect-[4/5] overflow-hidden rounded-xs border border-white/10 group">
                   <img 
-                    src="https://images.unsplash.com/photo-1519766304817-4f37bda74a29?q=80&w=1974&auto=format&fit=crop" 
+                    src="/images/basket-na-bisso.jpg"
                     alt="Basket Na Bisso - Culture Basketball"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90"
+                    className="w-full h-full object-cover object-[center_62%] group-hover:scale-105 transition-transform duration-700 opacity-90"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
                   <div className="absolute bottom-6 left-6 right-6">
@@ -284,4 +284,3 @@ export default function Events() {
     </div>
   );
 }
-

@@ -17,8 +17,8 @@ export default function EventDetail() {
         {/* Hero */}
         <section className="relative h-[80vh] bg-black overflow-hidden">
           <img 
-            src="https://images.unsplash.com/photo-1519766304817-4f37bda74a29?q=80&w=1974&auto=format&fit=crop" 
-            className="w-full h-full object-cover opacity-65 mix-blend-luminosity" 
+            src="/images/basket-na-bisso.jpg"
+            className="w-full h-full object-cover object-[center_62%] opacity-75"
             alt="Basket Na Bisso" 
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
@@ -30,7 +30,7 @@ export default function EventDetail() {
                   <span>Tous les Événements</span>
                 </Link>
                 <div className="inline-block px-3 py-1 bg-[#CFB53B] text-black text-[9px] uppercase font-bold tracking-widest mb-4">
-                  Événement Dédié · Sport & Culture
+                  African Streetball Championship
                 </div>
                 <h1 className="text-6xl md:text-9xl font-serif text-white tracking-tighter leading-[0.85]">
                    Basket<br />
@@ -45,7 +45,7 @@ export default function EventDetail() {
           <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
              {[
                { icon: <MapPin size={18} className="text-[#CFB53B]" />, label: "Ville", value: "Brazzaville, Congo" },
-               { icon: <Trophy size={18} className="text-[#CFB53B]" />, label: "Discipline", value: "Basketball & Street Culture" },
+               { icon: <Trophy size={18} className="text-[#CFB53B]" />, label: "Discipline", value: "African Streetball Championship" },
                { icon: <Users size={18} className="text-[#CFB53B]" />, label: "Communauté", value: "Jeunesse & Quartiers" },
                { icon: <Calendar size={18} className="text-[#CFB53B]" />, label: "Statut", value: "Prochaine Édition en Préparation" }
              ].map(item => (
@@ -134,12 +134,30 @@ export default function EventDetail() {
             <p className="text-sm text-[#1A1A1A]/60 font-light mb-8">
               Cosmos collabore avec des partenaires, des marques et des institutions pour faire grandir la scène sportive congolaise.
             </p>
-            <Link 
-              to="/contact" 
-              className="inline-block px-8 py-4 bg-[#1A1A1A] text-white hover:bg-[#CFB53B] hover:text-black transition-all text-[10px] uppercase font-bold tracking-widest"
-            >
-              Contactez l'équipe Cosmos
-            </Link>
+            <div className="flex flex-wrap justify-center gap-3">
+              <Link
+                to="/contact"
+                className="inline-block px-8 py-4 bg-[#1A1A1A] text-white hover:bg-[#CFB53B] hover:text-black transition-all text-[10px] uppercase font-bold tracking-widest"
+              >
+                Contactez l'équipe Cosmos
+              </Link>
+              <a
+                href="https://www.instagram.com/bnb_242/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block border border-black/15 px-8 py-4 text-[10px] uppercase font-bold tracking-widest transition-colors hover:border-[#CFB53B] hover:text-[#9A842D]"
+              >
+                Suivre @bnb_242
+              </a>
+              <a
+                href="https://www.tiktok.com/@basket.na.bisso"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block border border-black/15 px-8 py-4 text-[10px] uppercase font-bold tracking-widest transition-colors hover:border-[#CFB53B] hover:text-[#9A842D]"
+              >
+                TikTok Basket Na Bisso
+              </a>
+            </div>
           </div>
         </section>
       </div>

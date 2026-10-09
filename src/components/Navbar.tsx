@@ -24,7 +24,7 @@ export default function Navbar() {
     { name: 'Contact', path: '/contact' },
   ];
 
-  const isDarkHero = location.pathname === '/' && !scrolled;
+  const isDarkHero = ['/', '/talents'].includes(location.pathname) && !scrolled;
 
   return (
     <nav 

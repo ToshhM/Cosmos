@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Star, Camera, Upload } from 'lucide-react';
+import { ArrowRight, Star, Camera } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
@@ -22,7 +22,7 @@ export default function Home() {
     return localStorage.getItem('cosmos_events_img') || '/images/cosmos-events.png';
   });
   const [talentsImg, setTalentsImg] = useState<string>(() => {
-    return localStorage.getItem('cosmos_talents_img') || '/images/cosmos-talents.png';
+    return localStorage.getItem('cosmos_talents_img') || '/images/cosmos-talents-freestyle.jpg';
   });
 
   const eventsInputRef = useRef<HTMLInputElement>(null);
@@ -223,30 +223,6 @@ export default function Home() {
            <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#1A1A1A]/30">Three Pillars · One Ecosystem</div>
         </div>
         
-        {/* Quick Action Bar to load the exact photos if not set */}
-        <div className="mb-6 p-4 bg-white border border-black/5 rounded-sm flex flex-wrap items-center justify-between text-xs text-[#1A1A1A]/80 gap-3 shadow-xs">
-          <div className="flex items-center space-x-2.5">
-            <Upload size={14} className="text-[#CFB53B]" />
-            <span className="font-serif text-sm">Photos personnalisées pour <strong>Cosmos Events</strong> et <strong>Cosmos Talents</strong></span>
-          </div>
-          <div className="flex items-center space-x-3">
-            <button 
-              onClick={() => eventsInputRef.current?.click()}
-              className="px-3.5 py-1.5 bg-[#1A1A1A] hover:bg-[#CFB53B] text-white hover:text-black rounded-xs text-[10px] uppercase tracking-widest font-bold transition-all flex items-center space-x-1.5 cursor-pointer"
-            >
-              <Camera size={12} />
-              <span>Charger photo Events (Foule)</span>
-            </button>
-            <button 
-              onClick={() => talentsInputRef.current?.click()}
-              className="px-3.5 py-1.5 bg-[#1A1A1A] hover:bg-[#CFB53B] text-white hover:text-black rounded-xs text-[10px] uppercase tracking-widest font-bold transition-all flex items-center space-x-1.5 cursor-pointer"
-            >
-              <Camera size={12} />
-              <span>Charger photo Talents (Garçon)</span>
-            </button>
-          </div>
-        </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Cosmos Events */}
           <div 
@@ -329,7 +305,7 @@ export default function Home() {
                 (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=2070&auto=format&fit=crop";
               }}
               alt="Cosmos Talents - Le Garçon Freestyleur"
-              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
             />
             <div className="absolute inset-0 bg-red-950/45 group-hover:bg-red-950/25 transition-all duration-700" />
             
