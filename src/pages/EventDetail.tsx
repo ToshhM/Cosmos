@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
 import { ArrowLeft, MapPin, Calendar, Users, Award, Music, Utensils, Trophy, Heart, ArrowRight } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
+import { useLanguage } from '../i18n';
 
 export default function EventDetail() {
   const { id } = useParams<{ id: string }>();
+  const { t } = useLanguage();
 
   // Differentiate between ONE26, Basket Na Bisso, and other events
   const isOne26 = !id || id === 'one26';
@@ -27,10 +29,10 @@ export default function EventDetail() {
              <div>
                 <Link to="/events" className="flex items-center space-x-2 text-white/70 text-[10px] uppercase font-bold tracking-widest mb-10 hover:text-[#CFB53B] transition-colors">
                   <ArrowLeft size={14} />
-                  <span>Tous les Événements</span>
+                  <span>{t('Tous les Événements')}</span>
                 </Link>
                 <div className="inline-block px-3 py-1 bg-[#CFB53B] text-black text-[9px] uppercase font-bold tracking-widest mb-4">
-                  African Streetball Championship
+                  {t('African Streetball Championship')}
                 </div>
                 <h1 className="text-6xl md:text-9xl font-serif text-white tracking-tighter leading-[0.85]">
                    Basket<br />
@@ -52,8 +54,8 @@ export default function EventDetail() {
                <div key={item.label} className="flex flex-col space-y-2">
                  <span>{item.icon}</span>
                  <div>
-                    <span className="text-[9px] uppercase tracking-widest font-bold text-[#1A1A1A]/40 block mb-0.5">{item.label}</span>
-                    <span className="text-sm font-semibold">{item.value}</span>
+                    <span className="text-[9px] uppercase tracking-widest font-bold text-[#1A1A1A]/40 block mb-0.5">{t(item.label)}</span>
+                    <span className="text-sm font-semibold">{t(item.value)}</span>
                  </div>
                </div>
              ))}
@@ -64,24 +66,24 @@ export default function EventDetail() {
         <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
             <div className="lg:col-span-7">
-              <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#CFB53B] mb-4 block">Concept & Vision</span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#CFB53B] mb-4 block">{t('Concept & Vision')}</span>
               <h2 className="text-3xl md:text-5xl font-serif tracking-tight mb-8">
-                Célébrer le basketball congolais dans toute son authenticité.
+                {t('Célébrer le basketball congolais dans toute son authenticité.')}
               </h2>
               
               <div className="space-y-6 text-base text-[#1A1A1A]/75 font-light leading-relaxed mb-10">
                 <p>
-                  <strong>Basket Na Bisso</strong> (« Notre Basketball » en lingala) est un événement autonome pensé pour donner aux terrains et aux playgrounds de Brazzaville la dimension qu'ils méritent.
+                  <strong>Basket Na Bisso</strong>{t(' (« Notre Basketball » en lingala) est un événement autonome pensé pour donner aux terrains et aux playgrounds de Brazzaville la dimension qu’ils méritent.')}
                 </p>
                 <p>
-                  Au-delà de la compétition sportive, Basket Na Bisso est un manifeste pour la jeunesse : un espace où l'énergie brute des quartiers, la créativité musicale, le streetwear et la passion du ballon orange convergent.
+                  {t('Au-delà de la compétition sportive, Basket Na Bisso est un manifeste pour la jeunesse : un espace où l’énergie brute des quartiers, la créativité musicale, le streetwear et la passion du ballon orange convergent.')}
                 </p>
                 <div className="p-8 bg-black text-white rounded-xs">
                   <p className="text-base font-serif italic mb-3 text-white/90">
-                    « Créer un rendez-vous populaire pérenne où chaque jeune basketteur congolais peut exprimer son talent et où les fans vibrent ensemble. »
+                    {t('« Créer un rendez-vous populaire pérenne où chaque jeune basketteur congolais peut exprimer son talent et où les fans vibrent ensemble. »')}
                   </p>
                   <span className="text-[10px] uppercase tracking-widest text-[#CFB53B] font-bold">
-                    Cosmos Events · Vision Basket Na Bisso
+                    {t('Cosmos Events · Vision Basket Na Bisso')}
                   </span>
                 </div>
               </div>
@@ -89,12 +91,12 @@ export default function EventDetail() {
               {/* Pillars */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-8 border-t border-black/10">
                 <div className="p-6 bg-white border border-black/5">
-                  <h4 className="font-serif text-lg font-bold mb-2">Streetball & Matchs 5v5</h4>
-                  <p className="text-xs text-[#1A1A1A]/60 leading-relaxed">Tournois ouverts et confrontations inter-quartiers pour révéler les pépites locales.</p>
+                  <h4 className="font-serif text-lg font-bold mb-2">{t('Streetball & Matchs 5v5')}</h4>
+                  <p className="text-xs text-[#1A1A1A]/60 leading-relaxed">{t('Tournois ouverts et confrontations inter-quartiers pour révéler les pépites locales.')}</p>
                 </div>
                 <div className="p-6 bg-white border border-black/5">
-                  <h4 className="font-serif text-lg font-bold mb-2">Culture & Expression</h4>
-                  <p className="text-xs text-[#1A1A1A]/60 leading-relaxed">Fusion entre hip-hop congolais, street dance, mode locale et ferveur des supporters.</p>
+                  <h4 className="font-serif text-lg font-bold mb-2">{t('Culture & Expression')}</h4>
+                  <p className="text-xs text-[#1A1A1A]/60 leading-relaxed">{t('Fusion entre hip-hop congolais, street dance, mode locale et ferveur des supporters.')}</p>
                 </div>
               </div>
             </div>
@@ -104,22 +106,22 @@ export default function EventDetail() {
                  <img 
                    src="https://images.unsplash.com/photo-1544919982-b61976f0ba43?q=80&w=1974&auto=format&fit=crop" 
                    className="w-full h-full object-cover" 
-                   alt="Street Basketball Passion" 
+                   alt={t('Street Basketball Passion')}
                  />
                </div>
 
                {/* Cross link to ONE26 */}
                <div className="p-8 bg-white border border-black/10 rounded-xs">
-                 <span className="text-[9px] uppercase tracking-widest font-bold text-[#1A1A1A]/40 block mb-2">Événement Phare</span>
-                 <h3 className="font-serif text-2xl font-bold mb-3">ONE26 — Le tournoi du peuple</h3>
+                 <span className="text-[9px] uppercase tracking-widest font-bold text-[#1A1A1A]/40 block mb-2">{t('Événement Phare')}</span>
+                 <h3 className="font-serif text-2xl font-bold mb-3">{t('ONE26 — Le tournoi du peuple')}</h3>
                  <p className="text-xs text-[#1A1A1A]/60 mb-6 leading-relaxed">
-                   Découvrez la rétrospective des 3 jours d'événement à l'esplanade Massamba-Débat.
+                   {t("Découvrez la rétrospective des 3 jours d'événement à l'esplanade Massamba-Débat.")}
                  </p>
                  <Link 
                    to="/events/one26" 
                    className="inline-flex items-center space-x-2 text-[10px] uppercase font-bold tracking-widest text-[#1A1A1A] hover:text-[#CFB53B] transition-colors"
                  >
-                   <span>Voir ONE26</span>
+                   <span>{t('Voir ONE26')}</span>
                    <ArrowRight size={14} />
                  </Link>
                </div>
@@ -130,16 +132,16 @@ export default function EventDetail() {
         {/* Footer CTA */}
         <section className="py-20 bg-white border-t border-black/5 px-6 md:px-12 text-center">
           <div className="max-w-2xl mx-auto">
-            <h3 className="text-3xl font-serif mb-4">Envie de participer ou de soutenir la prochaine édition ?</h3>
+            <h3 className="text-3xl font-serif mb-4">{t('Envie de participer ou de soutenir la prochaine édition ?')}</h3>
             <p className="text-sm text-[#1A1A1A]/60 font-light mb-8">
-              Cosmos collabore avec des partenaires, des marques et des institutions pour faire grandir la scène sportive congolaise.
+              {t('Cosmos collabore avec des partenaires, des marques et des institutions pour faire grandir la scène sportive congolaise.')}
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <Link
                 to="/contact"
                 className="inline-block px-8 py-4 bg-[#1A1A1A] text-white hover:bg-[#CFB53B] hover:text-black transition-all text-[10px] uppercase font-bold tracking-widest"
               >
-                Contactez l'équipe Cosmos
+                {t("Contactez l'équipe Cosmos")}
               </Link>
               <a
                 href="https://www.instagram.com/bnb_242/"
@@ -147,7 +149,7 @@ export default function EventDetail() {
                 rel="noopener noreferrer"
                 className="inline-block border border-black/15 px-8 py-4 text-[10px] uppercase font-bold tracking-widest transition-colors hover:border-[#CFB53B] hover:text-[#9A842D]"
               >
-                Suivre @bnb_242
+                {t('Follow @bnb_242')}
               </a>
               <a
                 href="https://www.tiktok.com/@basket.na.bisso"
@@ -155,7 +157,7 @@ export default function EventDetail() {
                 rel="noopener noreferrer"
                 className="inline-block border border-black/15 px-8 py-4 text-[10px] uppercase font-bold tracking-widest transition-colors hover:border-[#CFB53B] hover:text-[#9A842D]"
               >
-                TikTok Basket Na Bisso
+                {t('Basket Na Bisso on TikTok')}
               </a>
             </div>
           </div>
@@ -180,11 +182,11 @@ export default function EventDetail() {
            <div>
               <Link to="/events" className="flex items-center space-x-2 text-white/70 text-[10px] uppercase font-bold tracking-widest mb-10 hover:text-[#CFB53B] transition-colors">
                 <ArrowLeft size={14} />
-                <span>Tous les Événements</span>
+                <span>{t('Tous les Événements')}</span>
               </Link>
               <div className="flex flex-wrap gap-2 mb-4">
                 <span className="px-3 py-1 bg-[#CFB53B] text-black text-[9px] uppercase font-bold tracking-widest">
-                  Tournoi du Peuple
+                  {t('Tournoi du Peuple')}
                 </span>
                 <span className="px-3 py-1 bg-white/20 backdrop-blur-md text-white text-[9px] uppercase font-bold tracking-widest">
                   Esplanade Massamba-Débat
@@ -192,12 +194,12 @@ export default function EventDetail() {
               </div>
               <h1 className="text-6xl md:text-9xl font-serif text-white tracking-tighter leading-[0.85]">
                  ONE26<br />
-                 <span className="italic opacity-90 decoration-1">Le Tournoi du Peuple.</span>
+                 <span className="italic opacity-90 decoration-1">{t('Le Tournoi du Peuple.')}</span>
               </h1>
            </div>
 
            <div className="mt-8 md:mt-0 text-white/80 font-mono text-xs">
-             <span className="block text-[#CFB53B] uppercase tracking-widest font-bold mb-1">Parrain Officiel</span>
+             <span className="block text-[#CFB53B] uppercase tracking-widest font-bold mb-1">{t('Parrain Officiel')}</span>
              <span className="text-base font-serif text-white">Rodrigue Nguesso</span>
            </div>
         </div>
@@ -215,8 +217,8 @@ export default function EventDetail() {
              <div key={item.label} className="flex flex-col space-y-2">
                <span>{item.icon}</span>
                <div>
-                  <span className="text-[9px] uppercase tracking-widest font-bold text-[#1A1A1A]/40 block mb-0.5">{item.label}</span>
-                  <span className="text-sm font-semibold">{item.value}</span>
+                  <span className="text-[9px] uppercase tracking-widest font-bold text-[#1A1A1A]/40 block mb-0.5">{t(item.label)}</span>
+                  <span className="text-sm font-semibold">{t(item.value)}</span>
                </div>
              </div>
            ))}
@@ -229,30 +231,30 @@ export default function EventDetail() {
           <div className="lg:col-span-7">
             <div className="flex items-center space-x-3 mb-6">
               <span className="w-8 h-px bg-[#CFB53B]"></span>
-              <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#CFB53B]">Récit de l'Événement</span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#CFB53B]">{t("Récit de l'Événement")}</span>
             </div>
 
             <h2 className="text-3xl md:text-5xl font-serif text-[#1A1A1A] tracking-tight mb-8">
-              ONE26 — le tournoi de basketball du peuple
+              {t('ONE26 — le tournoi de basketball du peuple')}
             </h2>
 
             {/* Exact user description */}
             <div className="space-y-6 text-base md:text-lg text-[#1A1A1A]/80 font-light leading-relaxed mb-10">
               <p>
-                Notre tournoi de basketball était un rassemblement liant amour pour le basket et la jeunesse brazzavilloise. Notre but était de proposer un événement sportif, où les jeunes et les plus vieux pouvaient venir passer du temps à l’esplanade Massamba débat, avec des animations musicales, des stands de nourritures, la venue d’artistes locaux le tournoi de basket.
+                {t('Notre tournoi de basketball était un rassemblement liant amour pour le basket et la jeunesse brazzavilloise. Notre but était de proposer un événement sportif, où les jeunes et les plus vieux pouvaient venir passer du temps à l’esplanade Massamba débat, avec des animations musicales, des stands de nourritures, la venue d’artistes locaux le tournoi de basket.')}
               </p>
               
               <div className="p-8 bg-[#CFB53B]/10 border-l-4 border-[#CFB53B] my-8 rounded-r-xs">
                  <p className="text-lg italic text-[#1A1A1A] font-serif leading-relaxed mb-4">
-                   « Pendant 3 jours nous avons eu la visite des officiels congolais que l’on remercie pour nous avoir aidé dans la réalisation de l’événement et on remercie tout particulièrement le parrain <strong>Rodrigue Nguesso</strong> qui sans lui rien n’aurait pu être possible. »
+                   {t('« Pendant 3 jours nous avons eu la visite des officiels congolais que l’on remercie pour nous avoir aidé dans la réalisation de l’événement et on remercie tout particulièrement le parrain ')}<strong>Rodrigue Nguesso</strong>{t(' qui sans lui rien n’aurait pu être possible. »')}
                  </p>
                  <span className="text-[10px] uppercase tracking-widest font-bold text-[#CFB53B] block">
-                   Remerciements officiels & Hommage
+                   {t('Remerciements officiels & Hommage')}
                  </span>
               </div>
 
               <p className="text-lg font-serif italic text-[#1A1A1A] font-normal">
-                Nous reviendrons très prochainement avec d’autres événements.
+                {t('Nous reviendrons très prochainement avec d’autres événements.')}
               </p>
             </div>
 
@@ -261,44 +263,44 @@ export default function EventDetail() {
               <div className="p-6 bg-white border border-black/5 rounded-xs">
                 <div className="flex items-center space-x-2 text-[#CFB53B] mb-2">
                   <Trophy size={16} />
-                  <span className="text-[9px] uppercase font-bold tracking-widest text-[#1A1A1A]">Le Tournoi</span>
+                  <span className="text-[9px] uppercase font-bold tracking-widest text-[#1A1A1A]">{t('Le Tournoi')}</span>
                 </div>
-                <h4 className="font-serif text-base font-bold mb-1">Basket du Peuple</h4>
+                <h4 className="font-serif text-base font-bold mb-1">{t('Basket du Peuple')}</h4>
                 <p className="text-xs text-[#1A1A1A]/60 leading-relaxed">
-                  Des matchs intenses qui ont fait vibrer le public sous les encouragements passionnés des supporters.
+                  {t('Des matchs intenses qui ont fait vibrer le public sous les encouragements passionnés des supporters.')}
                 </p>
               </div>
 
               <div className="p-6 bg-white border border-black/5 rounded-xs">
                 <div className="flex items-center space-x-2 text-[#CFB53B] mb-2">
                   <Music size={16} />
-                  <span className="text-[9px] uppercase font-bold tracking-widest text-[#1A1A1A]">Musique & Scène</span>
+                  <span className="text-[9px] uppercase font-bold tracking-widest text-[#1A1A1A]">{t('Musique & Scène')}</span>
                 </div>
-                <h4 className="font-serif text-base font-bold mb-1">Artistes Locaux</h4>
+                <h4 className="font-serif text-base font-bold mb-1">{t('Artistes Locaux')}</h4>
                 <p className="text-xs text-[#1A1A1A]/60 leading-relaxed">
-                  Animations musicales continues et prestation d'artistes locaux célébrant la culture urbaine.
+                  {t("Animations musicales continues et prestation d'artistes locaux célébrant la culture urbaine.")}
                 </p>
               </div>
 
               <div className="p-6 bg-white border border-black/5 rounded-xs">
                 <div className="flex items-center space-x-2 text-[#CFB53B] mb-2">
                   <Utensils size={16} />
-                  <span className="text-[9px] uppercase font-bold tracking-widest text-[#1A1A1A]">Street Food</span>
+                  <span className="text-[9px] uppercase font-bold tracking-widest text-[#1A1A1A]">{t('Street Food')}</span>
                 </div>
-                <h4 className="font-serif text-base font-bold mb-1">Stands de Nourriture</h4>
+                <h4 className="font-serif text-base font-bold mb-1">{t('Stands de Nourriture')}</h4>
                 <p className="text-xs text-[#1A1A1A]/60 leading-relaxed">
-                  Espaces de restauration conviviaux permettant aux familles, aux jeunes et aux anciens de partager un repas.
+                  {t('Espaces de restauration conviviaux permettant aux familles, aux jeunes et aux anciens de partager un repas.')}
                 </p>
               </div>
 
               <div className="p-6 bg-white border border-black/5 rounded-xs">
                 <div className="flex items-center space-x-2 text-[#CFB53B] mb-2">
                   <Users size={16} />
-                  <span className="text-[9px] uppercase font-bold tracking-widest text-[#1A1A1A]">Intergénérationnel</span>
+                  <span className="text-[9px] uppercase font-bold tracking-widest text-[#1A1A1A]">{t('Intergénérationnel')}</span>
                 </div>
-                <h4 className="font-serif text-base font-bold mb-1">Esplanade Massamba-Débat</h4>
+                <h4 className="font-serif text-base font-bold mb-1">{t('Esplanade Massamba-Débat')}</h4>
                 <p className="text-xs text-[#1A1A1A]/60 leading-relaxed">
-                  Le cœur battant de Brazzaville rassemblant toutes les générations dans un même élan de joie.
+                  {t('Le cœur battant de Brazzaville rassemblant toutes les générations dans un même élan de joie.')}
                 </p>
               </div>
             </div>
@@ -327,29 +329,29 @@ export default function EventDetail() {
              <div className="p-8 bg-white border border-black/10 rounded-xs shadow-xs">
                 <div className="flex items-center space-x-2 text-[#CFB53B] mb-3">
                   <Heart size={16} />
-                  <span className="text-[9px] uppercase font-bold tracking-widest text-[#1A1A1A]">Reconnaissance & Parrainage</span>
+                  <span className="text-[9px] uppercase font-bold tracking-widest text-[#1A1A1A]">{t('Reconnaissance & Parrainage')}</span>
                 </div>
                 <h3 className="font-serif text-xl font-bold mb-2">Rodrigue Nguesso</h3>
                 <p className="text-xs text-[#1A1A1A]/70 leading-relaxed font-light mb-4">
-                  Un hommage appuyé au parrain officiel qui a cru en cette vision et rendu possible cette grande célébration pour la jeunesse brazzavilloise.
+                  {t('Un hommage appuyé au parrain officiel qui a cru en cette vision et rendu possible cette grande célébration pour la jeunesse brazzavilloise.')}
                 </p>
                 <div className="text-[10px] text-[#1A1A1A]/40 uppercase font-mono tracking-wider pt-3 border-t border-black/5">
-                  Partenaire & Soutien Fondateur
+                  {t('Partenaire & Soutien Fondateur')}
                 </div>
              </div>
 
              {/* Discover Basket Na Bisso Box */}
              <div className="p-8 bg-[#1A1A1A] text-white rounded-xs">
-                <span className="text-[9px] uppercase tracking-widest font-bold text-[#CFB53B] block mb-2">Autre Événement Cosmos</span>
+                <span className="text-[9px] uppercase tracking-widest font-bold text-[#CFB53B] block mb-2">{t('Autre Événement Cosmos')}</span>
                 <h3 className="font-serif text-2xl font-bold mb-2">Basket Na Bisso</h3>
                 <p className="text-xs text-white/60 mb-6 leading-relaxed">
-                  Découvrez également l'événement dédié à la street culture et aux talents émergents du basketball congolais.
+                  {t("Découvrez également l'événement dédié à la street culture et aux talents émergents du basketball congolais.")}
                 </p>
                 <Link 
                   to="/events/basket-na-bisso" 
                   className="inline-flex items-center space-x-2 text-[10px] uppercase font-bold tracking-widest text-[#CFB53B] hover:text-white transition-colors"
                 >
-                  <span>Explorer Basket Na Bisso</span>
+                  <span>{t('Explorer Basket Na Bisso')}</span>
                   <ArrowRight size={14} />
                 </Link>
              </div>
@@ -360,11 +362,11 @@ export default function EventDetail() {
       {/* Officiels & Partenaires */}
       <section className="pb-36 px-6 md:px-12 max-w-7xl mx-auto border-t border-black/10 pt-16">
          <h3 className="text-[10px] uppercase font-bold tracking-[0.3em] text-[#1A1A1A]/40 mb-10 text-center">
-           Avec le soutien des Officiels Congolais & Partenaires
+           {t('Avec le soutien des Officiels Congolais & Partenaires')}
          </h3>
          <div className="flex flex-wrap justify-center gap-12 md:gap-20 opacity-50 grayscale hover:opacity-80 transition-opacity items-center">
             {['Ministère de la Jeunesse & des Sports', 'Ville de Brazzaville', 'Massamba-Débat', 'Partenaires Locaux', 'Cosmos Ecosystem'].map(brand => (
-              <span key={brand} className="text-sm md:text-lg font-serif font-bold tracking-tight">{brand}</span>
+              <span key={brand} className="text-sm md:text-lg font-serif font-bold tracking-tight">{t(brand)}</span>
             ))}
          </div>
       </section>

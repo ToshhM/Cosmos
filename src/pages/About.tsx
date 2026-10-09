@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion';
+import { useLanguage } from '../i18n';
 
 export default function About() {
+  const { t } = useLanguage();
+
   return (
     <div className="pt-40 pb-24 bg-[#F8F7F3]">
       <section className="max-w-7xl mx-auto px-6 md:px-12">
@@ -9,23 +12,23 @@ export default function About() {
            animate={{ opacity: 1, y: 0 }}
            transition={{ duration: 0.8 }}
         >
-          <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#1A1A1A]/30 mb-8 block">About Cosmos</span>
+          <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#1A1A1A]/30 mb-8 block">{t('About Cosmos')}</span>
           <h1 className="text-6xl md:text-9xl font-serif text-[#1A1A1A] tracking-tighter leading-[0.8] mb-16">
-            Connecting<br />
-            <span className="italic opacity-80 underline underline-offset-16">Culture.</span>
+            {t('Connecting')}<br />
+            <span className="italic opacity-80 underline underline-offset-16">{t('Culture.')}</span>
           </h1>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-24 mt-24">
           <div className="space-y-12">
             <h2 className="text-3xl font-serif text-[#1A1A1A] leading-tight">
-              We are a Brazzaville-based entertainment group building the future of African urban culture.
+              {t('We are a Brazzaville-based entertainment group building the future of African urban culture.')}
             </h2>
             <p className="text-lg text-[#1A1A1A]/60 font-light leading-relaxed">
-              Cosmos Group was founded on a simple insight: Africa's youth are its greatest asset, yet the infrastructure to support their creative and athletic ambitions remains underdeveloped.
+              {t("Cosmos Group was founded on a simple insight: Africa's youth are its greatest asset, yet the infrastructure to support their creative and athletic ambitions remains underdeveloped.")}
             </p>
             <p className="text-lg text-[#1A1A1A]/60 font-light leading-relaxed">
-              We bridge this gap through three integrated pillars: world-class events, professional talent management, and high-end content production.
+              {t('We bridge this gap through three integrated pillars: world-class events, professional talent management, and high-end content production.')}
             </p>
           </div>
           
@@ -37,12 +40,12 @@ export default function About() {
              />
              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
              <div className="absolute top-4 left-4 bg-[#CFB53B] text-black px-3 py-1.5 text-[9px] uppercase tracking-widest font-bold">
-               Brazzaville · Jeunesse & Culture
+               {t('Brazzaville · Jeunesse & Culture')}
              </div>
              <div className="absolute bottom-6 left-6 right-6 text-white">
-                <span className="text-[9px] uppercase tracking-widest font-bold text-[#CFB53B] mb-1 block">Créativité, Audace & Avenir</span>
-                <p className="text-base font-serif italic text-white leading-snug">« Offrir à la jeunesse africaine la scène et l'écosystème qu'elle mérite. »</p>
-                <p className="text-[9px] text-white/50 mt-2 tracking-wider">Photo : Valdhy Mbemba</p>
+                <span className="text-[9px] uppercase tracking-widest font-bold text-[#CFB53B] mb-1 block">{t('Créativité, Audace & Avenir')}</span>
+                <p className="text-base font-serif italic text-white leading-snug">{t('« Offrir à la jeunesse africaine la scène et l’écosystème qu’elle mérite. »')}</p>
+                <p className="text-[9px] text-white/50 mt-2 tracking-wider">{t('Photo: Valdhy Mbemba')}</p>
              </div>
           </div>
         </div>
@@ -52,8 +55,8 @@ export default function About() {
       <section className="mt-48 bg-black py-48 text-white px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 space-y-8 md:space-y-0">
-             <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/30">Our Values</span>
-             <h2 className="text-4xl md:text-7xl font-serif tracking-tighter">Integrity over influence.</h2>
+             <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/30">{t('Our Values')}</span>
+             <h2 className="text-4xl md:text-7xl font-serif tracking-tighter">{t('Integrity over influence.')}</h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-24">
@@ -64,8 +67,8 @@ export default function About() {
             ].map((v, i) => (
               <div key={v.title} className="p-8 border border-white/10 hover:bg-white/5 transition-colors">
                 <span className="text-xs font-bold opacity-30 mb-8 block">0{i+1}</span>
-                <h3 className="text-2xl font-serif mb-6">{v.title}</h3>
-                <p className="text-sm text-white/50 font-light leading-relaxed">{v.desc}</p>
+                <h3 className="text-2xl font-serif mb-6">{t(v.title)}</h3>
+                <p className="text-sm text-white/50 font-light leading-relaxed">{t(v.desc)}</p>
               </div>
             ))}
           </div>

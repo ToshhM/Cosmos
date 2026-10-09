@@ -2,8 +2,11 @@ import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Star, Camera } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../i18n';
 
 export default function Home() {
+  const { t } = useLanguage();
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { 
@@ -82,27 +85,27 @@ export default function Home() {
           className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full pt-12"
         >
           <motion.div variants={itemVariants} className="flex items-center space-x-3 mb-6">
-            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/50">Cosmos Group</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/50">{t('Cosmos Group')}</span>
             <span className="w-1 h-1 rounded-full bg-white/30" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/50">Est. Brazzaville</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/50">{t('Est. Brazzaville')}</span>
           </motion.div>
           
           <motion.h1 variants={itemVariants} className="text-[12vw] md:text-[9vw] font-serif leading-[0.85] text-white tracking-tighter mb-12">
-            A Universe<br />
-            <span className="italic opacity-80">of experiences.</span>
+            {t('A Universe')}<br />
+            <span className="italic opacity-80">{t('of experiences.')}</span>
           </motion.h1>
 
           <motion.div variants={itemVariants} className="flex flex-col md:flex-row md:items-end md:justify-between space-y-12 md:space-y-0">
             <p className="text-sm md:text-lg text-white/60 max-w-sm font-light leading-relaxed">
-              An integrated platform connecting events, talent and content — designed for the youth shaping Africa's cultural future.
+              {t("An integrated platform connecting events, talent and content — designed for the youth shaping Africa's cultural future.")}
             </p>
             <div className="flex space-x-8">
               <Link to="/events" className="group flex items-center space-x-3 text-[10px] uppercase font-bold tracking-widest text-white">
-                <span>Explore Events</span>
+                <span>{t('Explore Events')}</span>
                 <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link to="/talents" className="group flex items-center space-x-3 text-[10px] uppercase font-bold tracking-widest text-white">
-                <span>Meet Talents</span>
+                <span>{t('Meet Talents')}</span>
                 <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
@@ -115,7 +118,7 @@ export default function Home() {
              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
              className="w-24 h-24 border border-white/20 rounded-full flex items-center justify-center p-4 text-center"
            >
-              <span className="text-[8px] uppercase tracking-widest text-white/40 leading-tight">Scroll to discover cosmos</span>
+              <span className="text-[8px] uppercase tracking-widest text-white/40 leading-tight">{t('Scroll to discover cosmos')}</span>
            </motion.div>
         </div>
       </section>
@@ -127,7 +130,7 @@ export default function Home() {
             <div key={i} className="flex items-center space-x-16 px-8">
               {['Events', 'Talent Management', 'Studio', 'Content'].map((text) => (
                 <div key={text} className="flex items-center space-x-6">
-                  <span className="text-2xl md:text-3xl font-serif text-[#1A1A1A] tracking-tighter">{text}</span>
+                  <span className="text-2xl md:text-3xl font-serif text-[#1A1A1A] tracking-tighter">{t(text)}</span>
                   <Star fill="#CFB53B" stroke="none" size={20} />
                 </div>
               ))}
@@ -138,7 +141,7 @@ export default function Home() {
 
       {/* About Section */}
       <section className="py-24 md:py-48 px-6 md:px-12 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -146,7 +149,7 @@ export default function Home() {
             className="flex flex-col space-y-6"
           >
             <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#1A1A1A]/30">
-              01 — About
+              {t('01 — About')}
             </div>
 
             {/* Youth Culture Editorial Image */}
@@ -161,25 +164,25 @@ export default function Home() {
                 
                 {/* Floating badge */}
                 <div className="absolute top-4 left-4 bg-[#CFB53B] text-black px-3 py-1.5 text-[9px] uppercase tracking-widest font-bold shadow-sm">
-                  Jeunesse · +60% Under 25
+                  {t('Jeunesse · +60% Under 25')}
                 </div>
 
                 <div className="absolute bottom-6 left-6 right-6 text-white">
                   <p className="text-[10px] uppercase tracking-[0.25em] font-bold text-white/70 mb-2">
-                    Brazzaville, Congo
+                    {t('Brazzaville, Congo')}
                   </p>
                   <p className="font-serif italic text-lg leading-snug text-white">
-                    « L'énergie brute et le talent de la jeunesse urbaine congolaise. »
+                    {t('« L’énergie brute et le talent de la jeunesse urbaine congolaise. »')}
                   </p>
                   <p className="text-[9px] text-white/50 mt-2 tracking-wider">
-                    Photo : Valdhy Mbemba
+                    {t('Photo : Valdhy Mbemba')}
                   </p>
                 </div>
               </div>
             </div>
             
             <div className="flex items-center justify-between text-[11px] text-[#1A1A1A]/40 font-mono tracking-wider pt-1">
-              <span>GENERATION CREATIVE</span>
+              <span>{t('GENERATION CREATIVE')}</span>
               <span>EST. 2024</span>
             </div>
           </motion.div>
@@ -190,26 +193,26 @@ export default function Home() {
             className="pt-0 md:pt-4"
           >
             <h2 className="text-4xl md:text-6xl font-serif text-[#1A1A1A] tracking-tighter mb-12 leading-tight">
-              We build the <span className="italic">infrastructure</span> for culture — where talent, audience and partners meet.
+              {t('We build the ')}<span className="italic">{t('infrastructure')}</span>{t(' for culture — where talent, audience and partners meet.')}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-[#1A1A1A]/60 leading-relaxed font-light mb-12">
               <p>
-                More than 60% of the Congolese population is under 25. Dynamic, creative, deeply engaged in sport, music and urban culture — yet largely under-served by structured intermediaries.
+                {t("More than 60% of the Congolese population is under 25. Dynamic, creative, deeply engaged in sport, music and urban culture — yet largely under-served by structured intermediaries.")}
               </p>
               <p>
-                Cosmos exists to close that gap: a single platform giving young talent a stage, brands a credible audience, and a region a cultural engine that can scale far beyond its borders.
+                {t('Cosmos exists to close that gap: a single platform giving young talent a stage, brands a credible audience, and a region a cultural engine that can scale far beyond its borders.')}
               </p>
             </div>
 
             <div className="pt-8 border-t border-black/10 flex flex-wrap items-center gap-8">
               <div>
                 <span className="block text-3xl font-serif font-bold text-[#1A1A1A]">60%+</span>
-                <span className="text-[10px] uppercase tracking-widest text-[#1A1A1A]/40 font-bold">Population under 25</span>
+                <span className="text-[10px] uppercase tracking-widest text-[#1A1A1A]/40 font-bold">{t('Population under 25')}</span>
               </div>
               <div className="h-8 w-px bg-black/10" />
               <div>
                 <span className="block text-3xl font-serif font-bold text-[#1A1A1A]">3 Pillars</span>
-                <span className="text-[10px] uppercase tracking-widest text-[#1A1A1A]/40 font-bold">Events · Talents · Studio</span>
+                <span className="text-[10px] uppercase tracking-widest text-[#1A1A1A]/40 font-bold">{t('Events · Talents · Studio')}</span>
               </div>
             </div>
           </motion.div>
@@ -219,8 +222,8 @@ export default function Home() {
       {/* Divisions Section */}
       <section className="pb-24 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="flex justify-between items-end mb-12">
-           <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#1A1A1A]/30">02 — Divisions</div>
-           <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#1A1A1A]/30">Three Pillars · One Ecosystem</div>
+           <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#1A1A1A]/30">{t('02 — Divisions')}</div>
+           <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#1A1A1A]/30">{t('Three Pillars · One Ecosystem')}</div>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -267,22 +270,22 @@ export default function Home() {
                 eventsInputRef.current?.click();
               }}
               className="absolute top-6 right-6 z-20 bg-black/70 hover:bg-[#CFB53B] text-white hover:text-black px-3 py-1.5 rounded-full text-[9px] uppercase tracking-widest font-bold backdrop-blur-md border border-white/20 transition-all flex items-center space-x-1.5 cursor-pointer opacity-70 hover:opacity-100"
-              title="Sélectionner Still 2026-10-09 165732_1.1.1.png pour Cosmos Events"
+              title={t('Change the Cosmos Events photo')}
             >
               <Camera size={12} />
-              <span>Changer photo</span>
+              <span>{t('Changer photo')}</span>
             </button>
 
             <Link to="/events" className="absolute inset-0 p-12 flex flex-col justify-between text-white z-10">
               <div className="flex justify-between items-center">
-                <span className="text-[8px] uppercase tracking-widest font-bold opacity-60">Events</span>
+                <span className="text-[8px] uppercase tracking-widest font-bold opacity-60">{t('Events')}</span>
                 <span className="text-[9px] uppercase tracking-widest font-bold bg-[#CFB53B]/20 text-[#CFB53B] px-2.5 py-1 rounded">La Place du Peuple</span>
               </div>
               <div>
-                 <span className="text-[10px] uppercase tracking-widest font-bold opacity-60 mb-4 block">A Universe of Experiences</span>
+                 <span className="text-[10px] uppercase tracking-widest font-bold opacity-60 mb-4 block">{t('A Universe of Experiences')}</span>
                  <h3 className="text-4xl font-serif mb-4 group-hover:-translate-y-2 transition-transform duration-500">Cosmos Events</h3>
-                 <p className="text-xs font-light opacity-60 max-w-xs mb-8">High-impact sport, music and cultural events. Home of ONE26 & Basket Na Bisso.</p>
-                 <span className="text-[10px] uppercase font-bold tracking-widest flex items-center group-hover:translate-x-2 transition-all">Enter <ArrowRight size={14} className="ml-2" /></span>
+                 <p className="text-xs font-light opacity-60 max-w-xs mb-8">{t('High-impact sport, music and cultural events. Home of ONE26 & Basket Na Bisso.')}</p>
+                 <span className="text-[10px] uppercase font-bold tracking-widest flex items-center group-hover:translate-x-2 transition-all">{t('Enter')} <ArrowRight size={14} className="ml-2" /></span>
               </div>
             </Link>
           </div>
@@ -330,22 +333,22 @@ export default function Home() {
                 talentsInputRef.current?.click();
               }}
               className="absolute top-6 right-6 z-20 bg-black/70 hover:bg-[#CFB53B] text-white hover:text-black px-3 py-1.5 rounded-full text-[9px] uppercase tracking-widest font-bold backdrop-blur-md border border-white/20 transition-all flex items-center space-x-1.5 cursor-pointer opacity-70 hover:opacity-100"
-              title="Sélectionner Still 2026-10-09 171744_1.1.2.png (le garçon) pour Cosmos Talents"
+              title={t('Change the Cosmos Talents photo')}
             >
               <Camera size={12} />
-              <span>Changer photo</span>
+              <span>{t('Changer photo')}</span>
             </button>
 
             <Link to="/talents" className="absolute inset-0 p-12 flex flex-col justify-between text-white z-10">
               <div className="flex justify-between items-center">
-                <span className="text-[8px] uppercase tracking-widest font-bold opacity-60">Talents</span>
-                <span className="text-[9px] uppercase tracking-widest font-bold bg-[#CFB53B]/20 text-[#CFB53B] px-2.5 py-1 rounded">Jeunesse & Freestyle</span>
+                <span className="text-[8px] uppercase tracking-widest font-bold opacity-60">{t('Talents')}</span>
+                <span className="text-[9px] uppercase tracking-widest font-bold bg-[#CFB53B]/20 text-[#CFB53B] px-2.5 py-1 rounded">{t('Jeunesse & Freestyle')}</span>
               </div>
               <div>
-                 <span className="text-[10px] uppercase tracking-widest font-bold opacity-60 mb-4 block">A Universe of Talents</span>
+                 <span className="text-[10px] uppercase tracking-widest font-bold opacity-60 mb-4 block">{t('A Universe of Talents')}</span>
                  <h3 className="text-4xl font-serif mb-4 group-hover:-translate-y-2 transition-transform duration-500">Cosmos Talents</h3>
-                 <p className="text-xs font-light opacity-60 max-w-xs mb-8">Identifying, structuring and amplifying the next generation of African artists, athletes and creators.</p>
-                 <span className="text-[10px] uppercase font-bold tracking-widest flex items-center group-hover:translate-x-2 transition-all">Enter <ArrowRight size={14} className="ml-2" /></span>
+                 <p className="text-xs font-light opacity-60 max-w-xs mb-8">{t('Identifying, structuring and amplifying the next generation of African artists, athletes and creators.')}</p>
+                 <span className="text-[10px] uppercase font-bold tracking-widest flex items-center group-hover:translate-x-2 transition-all">{t('Enter')} <ArrowRight size={14} className="ml-2" /></span>
               </div>
             </Link>
           </div>
@@ -354,19 +357,19 @@ export default function Home() {
           <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
              <div className="aspect-video bg-[url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center rounded-sm" />
              <div className="flex flex-col justify-center p-12 bg-white rounded-sm">
-                <span className="text-[10px] uppercase tracking-widest font-bold text-[#1A1A1A]/40 mb-8">Studio · 360°</span>
+                <span className="text-[10px] uppercase tracking-widest font-bold text-[#1A1A1A]/40 mb-8">{t('Studio · 360°')}</span>
                 <p className="text-sm text-[#1A1A1A]/70 leading-relaxed font-light mb-12">
-                  Capturing events. Producing video, photo, digital. Building storytelling that travels — and amplifies the entire ecosystem on every platform that matters.
+                  {t('Capturing events. Producing video, photo, digital. Building storytelling that travels — and amplifies the entire ecosystem on every platform that matters.')}
                 </p>
                 <div className="space-y-4">
                    <a href="https://talaref.co" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-4 pb-4 border-b border-black/5 last:border-0 group/studio">
                      <ArrowRight size={14} className="text-[#1A1A1A]/40 group-hover/studio:translate-x-1 transition-transform" />
-                     <span className="text-[10px] uppercase tracking-widest font-bold text-[#1A1A1A]">Visit Talaref Studio</span>
+                     <span className="text-[10px] uppercase tracking-widest font-bold text-[#1A1A1A]">{t('Visit Talaref Studio')}</span>
                    </a>
                    {['Live capture & broadcast', 'Branded content & films', 'Distribution & social strategy'].map(item => (
                      <div key={item} className="flex items-center space-x-4 pb-4 border-b border-black/5 last:border-0 opacity-50">
                        <ArrowRight size={14} className="text-[#1A1A1A]/40" />
-                       <span className="text-[10px] uppercase tracking-widest font-bold text-[#1A1A1A]">{item}</span>
+                       <span className="text-[10px] uppercase tracking-widest font-bold text-[#1A1A1A]">{t(item)}</span>
                      </div>
                    ))}
                 </div>
@@ -379,9 +382,9 @@ export default function Home() {
       <section className="bg-white py-24 md:py-48">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
            <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 space-y-8 md:space-y-0">
-              <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#1A1A1A]/30">03 — Featured Work</div>
+              <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#1A1A1A]/30">{t('03 — Featured Work')}</div>
               <h2 className="text-4xl md:text-7xl font-serif text-[#1A1A1A] tracking-tighter">
-                Proof of concept. <span className="italic opacity-80 underline underline-offset-8">Built in public.</span>
+                {t('Proof of concept.')} <span className="italic opacity-80 underline underline-offset-8">{t('Built in public.')}</span>
               </h2>
            </div>
 
@@ -397,15 +400,15 @@ export default function Home() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent flex flex-col justify-end p-8 md:p-14">
                    <div className="flex flex-wrap items-center gap-3 mb-4">
-                     <span className="text-[9px] uppercase tracking-widest font-bold bg-[#CFB53B] text-black px-3 py-1">Édition Phare</span>
-                     <span className="text-[9px] uppercase tracking-widest font-bold text-white/70">Esplanade Massamba-Débat · 3 Jours</span>
+                     <span className="text-[9px] uppercase tracking-widest font-bold bg-[#CFB53B] text-black px-3 py-1">{t('Édition Phare')}</span>
+                     <span className="text-[9px] uppercase tracking-widest font-bold text-white/70">{t('Esplanade Massamba-Débat · 3 Jours')}</span>
                    </div>
-                   <h3 className="text-3xl md:text-6xl font-serif text-white tracking-tighter mb-3">ONE26 — Le tournoi de basketball du peuple</h3>
+                   <h3 className="text-3xl md:text-6xl font-serif text-white tracking-tighter mb-3">{t('ONE26 — Le tournoi de basketball du peuple')}</h3>
                    <p className="text-xs md:text-sm text-white/80 font-light max-w-2xl line-clamp-2 mb-4 leading-relaxed">
-                     Notre tournoi de basketball était un rassemblement liant amour pour le basket et la jeunesse brazzavilloise, avec des animations musicales, des stands de nourritures et la venue d’artistes locaux.
+                     {t('Notre tournoi de basketball était un rassemblement liant amour pour le basket et la jeunesse brazzavilloise, avec des animations musicales, des stands de nourritures et la venue d’artistes locaux.')}
                    </p>
                    <div className="flex items-center space-x-2 text-[10px] uppercase font-bold tracking-widest text-[#CFB53B] group-hover:translate-x-2 transition-transform">
-                     <span>Découvrir la rétrospective</span>
+                     <span>{t('Découvrir la rétrospective')}</span>
                      <ArrowRight size={14} />
                    </div>
                 </div>
@@ -415,17 +418,17 @@ export default function Home() {
            {/* Basket Na Bisso Dedicated Showcase */}
            <div className="mb-24 p-8 md:p-12 bg-[#1A1A1A] text-white rounded-xs border border-black/10 flex flex-col md:flex-row items-center justify-between gap-8">
              <div className="max-w-xl">
-               <span className="text-[9px] uppercase tracking-widest font-bold text-[#CFB53B] block mb-2">Section Dédiée · Événement Autonome</span>
+               <span className="text-[9px] uppercase tracking-widest font-bold text-[#CFB53B] block mb-2">{t('Section Dédiée · Événement Autonome')}</span>
                <h4 className="text-2xl md:text-4xl font-serif tracking-tight mb-3">Basket Na Bisso</h4>
                <p className="text-xs md:text-sm text-white/70 font-light leading-relaxed">
-                 Un événement indépendant dédié à la ferveur du basketball de rue et à la culture congolaise, réunissant les quartiers et les talents de demain.
+                 {t('Un événement indépendant dédié à la ferveur du basketball de rue et à la culture congolaise, réunissant les quartiers et les talents de demain.')}
                </p>
              </div>
              <Link 
                to="/events/basket-na-bisso"
                className="shrink-0 px-6 py-3.5 bg-[#CFB53B] text-black hover:bg-white transition-colors text-[10px] uppercase font-bold tracking-widest flex items-center space-x-2"
              >
-               <span>Explorer Basket Na Bisso</span>
+               <span>{t('Explorer Basket Na Bisso')}</span>
                <ArrowRight size={14} />
              </Link>
            </div>
@@ -438,7 +441,7 @@ export default function Home() {
               ].map(stat => (
                 <div key={stat.label} className="flex flex-col">
                    <span className="text-6xl font-serif text-[#CFB53B] mb-4 tracking-tighter">{stat.label}</span>
-                   <p className="text-xs uppercase tracking-widest font-medium text-[#1A1A1A]/40">{stat.desc}</p>
+                   <p className="text-xs uppercase tracking-widest font-medium text-[#1A1A1A]/40">{t(stat.desc)}</p>
                 </div>
               ))}
            </div>
@@ -450,10 +453,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
            <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
               <div>
-                 <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#1A1A1A]/30 mb-8">04 — Synergy</div>
+                 <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#1A1A1A]/30 mb-8">{t('04 — Synergy')}</div>
                  <h2 className="text-5xl md:text-7xl font-serif text-[#1A1A1A] tracking-tighter leading-[0.9]">
-                   A continuous<br />
-                   <span className="italic opacity-80">value cycle.</span>
+                   {t('A continuous')}<br />
+                   <span className="italic opacity-80">{t('value cycle.')}</span>
                  </h2>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 border-l border-black/5 ml-auto">
@@ -464,8 +467,8 @@ export default function Home() {
                    { title: "Partners", desc: "Strengthen the events — closing the loop." }
                  ].map(item => (
                    <div key={item.title} className="p-8 bg-[#F8F7F3]/50 backdrop-blur-sm">
-                      <span className="text-[8px] uppercase tracking-widest font-bold text-[#1A1A1A]/40 mb-4 block">{item.title}</span>
-                      <p className="text-xs text-[#1A1A1A] font-light leading-relaxed">{item.desc}</p>
+                      <span className="text-[8px] uppercase tracking-widest font-bold text-[#1A1A1A]/40 mb-4 block">{t(item.title)}</span>
+                      <p className="text-xs text-[#1A1A1A] font-light leading-relaxed">{t(item.desc)}</p>
                    </div>
                  ))}
               </div>
@@ -477,17 +480,17 @@ export default function Home() {
       <section className="py-24 md:py-48 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between space-y-16 md:space-y-0">
            <div className="max-w-md">
-              <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#1A1A1A]/30 mb-8">05 — Contact</div>
+              <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#1A1A1A]/30 mb-8">{t('05 — Contact')}</div>
               <h2 className="text-6xl md:text-8xl font-serif text-[#1A1A1A] tracking-tighter leading-[0.8] mb-12">
-                Build with<br />
+                {t('Build with')}<br />
                 <span className="italic opacity-80">Cosmos.</span>
               </h2>
               <p className="text-sm text-[#1A1A1A]/60 leading-relaxed font-light">
-                Brands, institutions and partners — let's design the next chapter together.
+                {t("Brands, institutions and partners — let's design the next chapter together.")}
               </p>
            </div>
 
-           <div className="grid grid-cols-1 sm:grid-cols-2 gap-16 md:gap-x-24 md:gap-y-16 pt-12">
+           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-x-24 lg:gap-y-16 pt-12">
               {[
                 { label: "Partnerships", email: "partners@cosmos.africa" },
                 { label: "Talents", email: "talents@cosmos.africa" },
@@ -495,11 +498,11 @@ export default function Home() {
                 { label: "Office", email: "Brazzaville · Republic of Congo" }
               ].map(contact => (
                 <div key={contact.label}>
-                   <span className="text-[10px] uppercase tracking-widest font-bold text-[#1A1A1A]/40 mb-4 block">{contact.label}</span>
+                   <span className="text-[10px] uppercase tracking-widest font-bold text-[#1A1A1A]/40 mb-4 block">{t(contact.label)}</span>
                    {contact.email.includes('@') ? (
                      <p className="text-sm font-medium border-b border-black/10 inline-block pb-1 cursor-pointer hover:italic transition-all">{contact.email}</p>
                    ) : (
-                     <p className="text-sm font-medium">{contact.email}</p>
+                     <p className="text-sm font-medium">{t(contact.email)}</p>
                    )}
                 </div>
               ))}

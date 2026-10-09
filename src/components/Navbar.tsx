@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Languages, Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import { useLanguage } from '../i18n';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,14 +19,28 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: 'About', path: '/about' },
-    { name: 'Events', path: '/events' },
-    { name: 'Talents', path: '/talents' },
-    { name: 'Studio', path: 'https://talaref.co', external: true },
-    { name: 'Contact', path: '/contact' },
+    { name: t('About'), path: '/about' },
+    { name: t('Events'), path: '/events' },
+    { name: t('Talents'), path: '/talents' },
+    { name: t('Studio'), path: 'https://talaref.co', external: true },
+    { name: t('Contact'), path: '/contact' },
   ];
 
   const isDarkHero = ['/', '/talents'].includes(location.pathname) && !scrolled;
+  const languageButton = (
+    <button
+      type="button"
+      onClick={() => setLanguage(language === 'en' ? 'fr' : 'en')}
+      aria-label={language === 'en' ? 'Passer le site en français' : 'Switch the website to English'}
+      title={language === 'en' ? 'Français' : 'English'}
+      className={`inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest transition-colors ${
+        isDarkHero ? 'text-white' : 'text-[#1A1A1A]'
+      }`}
+    >
+      <Languages size={15} aria-hidden="true" />
+      <span>{language === 'en' ? 'FR' : 'EN'}</span>
+    </button>
+  );
 
   return (
     <nav 
@@ -43,7 +59,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center space-x-12">
+        <div className="hidden lg:flex items-center space-x-12">
           {navLinks.map((link) => (
             link.external ? (
               <a
@@ -81,21 +97,28 @@ export default function Navbar() {
                 : 'border-[#1A1A1A]/20 text-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-[#F8F7F3]'
             }`}
           >
-            Partner with us
+            {t('Partner with us')}
           </Link>
+          {languageButton}
         </div>
 
         {/* Mobile Toggle */}
-        <button 
-          className="md:hidden"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? (
-            <X className={isDarkHero ? 'text-white' : 'text-[#1A1A1A]'} />
-          ) : (
-            <Menu className={isDarkHero ? 'text-white' : 'text-[#1A1A1A]'} />
-          )}
-        </button>
+        <div className="flex items-center gap-5 lg:hidden">
+          {languageButton}
+          <button
+            type="button"
+            className="inline-flex"
+            aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={isOpen}
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? (
+              <X className={isDarkHero ? 'text-white' : 'text-[#1A1A1A]'} />
+            ) : (
+              <Menu className={isDarkHero ? 'text-white' : 'text-[#1A1A1A]'} />
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -105,7 +128,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-0 left-0 w-full h-[60vh] bg-[#F8F7F3] z-[-1] pt-24 px-8 pb-12 flex flex-col justify-between shadow-2xl md:hidden"
+            className="absolute top-0 left-0 w-full h-[60vh] bg-[#F8F7F3] z-[-1] pt-24 px-8 pb-12 flex flex-col justify-between shadow-2xl lg:hidden"
           >
             <div className="flex flex-col space-y-6">
               {navLinks.map((link) => (
@@ -137,7 +160,7 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
               className="w-full py-5 bg-[#1A1A1A] text-[#F8F7F3] text-center text-xs uppercase tracking-widest font-bold"
             >
-              Partner with us
+              {t('Partner with us')}
             </Link>
           </motion.div>
         )}
