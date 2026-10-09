@@ -18,7 +18,7 @@ export default function Events() {
       title: 'Cosmos Live: Afro-Beats',
       date: 'Décembre 2026',
       location: 'Brazzaville, Congo',
-      image: 'https://images.unsplash.com/photo-1459749411177-042180ce673c?q=80&w=2070&auto=format&fit=crop',
+      image: '/images/cosmos-live-afrobeats-placeholder.svg',
       category: 'Musique & Festival',
       desc: 'Célébration live de la musique contemporaine africaine avec des têtes d\'affiche locales et internationales.'
     }

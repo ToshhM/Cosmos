@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" fill="none">
+  <defs>
+    <linearGradient id="background" x1="80" y1="30" x2="1500" y2="880" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#171522"/>
+      <stop offset=".52" stop-color="#302040"/>
+      <stop offset="1" stop-color="#101016"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="matrix(740 0 0 520 1130 230)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C85C48" stop-opacity=".72"/>
+      <stop offset="1" stop-color="#C85C48" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="beam" x1="800" y1="0" x2="800" y2="600" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EBC75B" stop-opacity=".52"/>
+      <stop offset="1" stop-color="#EBC75B" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M80 0H0V80" stroke="#fff" stroke-opacity=".045"/>
+    </pattern>
+  </defs>
+  <path fill="url(#background)" d="M0 0h1600v900H0z"/>
+  <path fill="url(#glow)" d="M0 0h1600v900H0z"/>
+  <path fill="url(#grid)" d="M0 0h1600v900H0z"/>
+  <path fill="url(#beam)" d="m620 0 155 570H380L620 0Z" opacity=".65"/>
+  <path fill="url(#beam)" d="m1010 0 320 570H850L1010 0Z" opacity=".48"/>
+  <circle cx="1110" cy="332" r="188" stroke="#EBC75B" stroke-opacity=".32" stroke-width="2"/>
+  <circle cx="1110" cy="332" r="230" stroke="#fff" stroke-opacity=".14"/>
+  <path d="M0 645c214-86 350-86 518 0 148 76 275 76 422 0s277-76 660 0v255H0V645Z" fill="#0B0B10" fill-opacity=".72"/>
+  <path d="M0 700c215-74 371-74 528 0 155 73 293 73 450 0s318-73 622 0" stroke="#CFB53B" stroke-opacity=".5" stroke-width="3"/>
+  <g fill="#EBC75B">
+    <circle cx="208" cy="187" r="4"/>
+    <circle cx="430" cy="340" r="3"/>
+    <circle cx="1378" cy="186" r="5"/>
+    <circle cx="1320" cy="420" r="3"/>
+    <circle cx="880" cy="142" r="3"/>
+  </g>
+  <g fill="#F8F7F3" font-family="Arial, Helvetica, sans-serif">
+    <text x="96" y="116" font-size="20" font-weight="700" letter-spacing="8" opacity=".72">COSMOS EVENTS</text>
+    <text x="96" y="606" font-size="18" font-weight="700" letter-spacing="7" fill="#CFB53B">BRAZZAVILLE · DECEMBER 2026</text>
+    <text x="92" y="742" font-family="Georgia, 'Times New Roman', serif" font-size="92" letter-spacing="-3">COSMOS LIVE</text>
+    <text x="98" y="814" font-size="27" font-weight="700" letter-spacing="12" opacity=".78">AFRO-BEATS</text>
+  </g>
+</svg>
